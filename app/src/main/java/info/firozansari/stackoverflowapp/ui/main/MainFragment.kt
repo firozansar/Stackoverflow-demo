@@ -13,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.stackoverflowapp.R
 import info.firozansari.stackoverflowapp.api.ApiStatus
 import info.firozansari.stackoverflowapp.databinding.MainFragmentBinding
+import androidx.core.net.toUri
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -41,7 +42,7 @@ class MainFragment : Fragment() {
             requireActivity().startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse(it.link)
+                    it.link?.toUri()
                 )
             )
         })
@@ -51,17 +52,21 @@ class MainFragment : Fragment() {
         observeApiStatus()
     }
 
+    private fun updateStatusView(resourceId: Int) {
+        binding.statusView.setImageResource(resourceId)
+    }
+
     private fun observeApiStatus() {
         viewModel.apiStatus.observe(viewLifecycleOwner, Observer {
             it?.let {
                 when (it) {
                     ApiStatus.LOADING -> {
                         binding.statusView.visibility = View.VISIBLE
-                        binding.statusView.setImageResource(R.drawable.loading_animation)
+                        updateStatusView(R.drawable.loading_animation)
                     }
                     ApiStatus.ERROR -> {
                         binding.statusView.visibility = View.VISIBLE
-                        binding.statusView.setImageResource(R.drawable.ic_connection_error)
+                        updateStatusView(R.drawable.ic_connection_error)
                     }
                     ApiStatus.DONE -> {
                         binding.statusView.visibility = View.GONE
@@ -73,11 +78,11 @@ class MainFragment : Fragment() {
     }
 
     private fun observeQuestions() {
-        viewModel.questions.observe(viewLifecycleOwner, Observer {
+        viewModel.questions.observe(viewLifecycleOwner) {
             it?.let {
                 adapter.submitList(it)
             }
-        })
+        }
     }
 
     companion object {

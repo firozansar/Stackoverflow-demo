@@ -17,8 +17,9 @@ import javax.inject.Inject
 import kotlin.collections.ArrayList
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val stackoverflowRepository: StackoverflowRepository) :
-    ViewModel() {
+class MainViewModel @Inject constructor(
+    private val stackoverflowRepository: StackoverflowRepository
+) : ViewModel() {
 
     // The most recent API response
     private val _apiStatus = MutableLiveData<ApiStatus>()
@@ -46,7 +47,6 @@ class MainViewModel @Inject constructor(private val stackoverflowRepository: Sta
     }
 
     private fun getUnansweredQuestion() {
-        // Using Coroutines
         coroutineScope.launch {
             val fromDate: Date = Date.from(ZonedDateTime.now().minusMonths(1).toInstant())
             // Will get the topic/ tagged value and min votes dynamically in future
