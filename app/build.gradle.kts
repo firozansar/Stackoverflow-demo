@@ -80,12 +80,15 @@ dependencies {
     //implementation(libs.roomPaging)
 
     // Unit test  dependencies
-//    testImplementation(libs.mockK)
-//    testRuntimeOnly(libs.junitVintageEngine)
-//    testImplementation(libs.junit5Api)
-//    testRuntimeOnly(libs.junit5Engine)
-//    testImplementation(libs.junit5Params)
-//    testImplementation(libs.extJUnit)
-//    testImplementation(libs.kotlinxCoroutinesTest)
+    testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.junit5Api)
+    testRuntimeOnly(libs.junit5Engine)
+    testImplementation(libs.junit5Params)
+    testImplementation(libs.extJUnit)
+    testImplementation(libs.espressoCore)
+    testImplementation(libs.mockitoCore)
+    testImplementation(libs.mockitoKotlin)
+    testImplementation(libs.mockitoAndroid)
+    //testImplementation(libs.kotlinxCoroutinesTest)
 
 }

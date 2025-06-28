@@ -19,14 +19,26 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
-kotlinxCoroutinesTest = "1.7.3"
+kotlinxCoroutinesTest = "1.10.2"
 material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
 
+#Testing versions
+androidTestInstrumentation = "androidx.test.runner.AndroidJUnitRunner"
+junit5Version = "5.13.2"
+extJUnitVersion = "1.2.1"
+mockKVersion = "1.14.4"
+androidXTestVersion = "1.6.2"
+testMonitorVersion = "1.7.2"
+orchestratorVersion = "1.5.1"
+espressoVersion = "3.6.1"
+mockitoCore = "5.10.0"  # Or the latest stable version
+mockitoKotlin = "5.2.1" # Or the latest stable version for Mockito-Kotlin
+mockitoAndroid = "5.10.0" #
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
 androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
@@ -52,10 +64,37 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+# Unit testing
+androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
+junit5Api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5Version" }
+junit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5Version" }
+junit5Params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit5Version" }
+junitVintageEngine = { module="org.junit.vintage:junit-vintage-engine", version.ref = "junit5Version" }
+extJUnit = { module = "androidx.test.ext:junit", version.ref = "extJUnitVersion" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
+mockK = { module = "io.mockk:mockk", version.ref = "mockKVersion" }
+
+# Mockito Core - For unit tests
+mockitoCore = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
+
+# Mockito-Kotlin (Recommended for Kotlin projects for better syntax)
+mockitoKotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
+
+# Mockito Android - For instrumented tests (androidTestImplementation)
+mockitoAndroid = { group = "org.mockito", name = "mockito-android", version.ref = "mockitoAndroid" }
+
+
+# Android testing
+espressoCore = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoVersion" }
+androidTestRunner = { module = "androidx.test:runner", version.ref = "androidXTestVersion" }
+androidTestOrchestrator = { module = "androidx.test:orchestrator", version.ref = "orchestratorVersion" }
+androidTestMonitor = { module = "androidx.test:monitor", version.ref = "testMonitorVersion" }
+mockKAndroid = { module = "io.mockk:mockk-android", version.ref = "mockKVersion" }
+mockKAgentJvm = { module = "io.mockk:mockk-agent-jvm", version.ref = "mockKVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
