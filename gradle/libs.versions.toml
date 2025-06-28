@@ -75,7 +75,7 @@ junit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref 
 junit5Params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit5Version" }
 junitVintageEngine = { module="org.junit.vintage:junit-vintage-engine", version.ref = "junit5Version" }
 extJUnit = { module = "androidx.test.ext:junit", version.ref = "extJUnitVersion" }
-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
+kotlinxCoroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 mockK = { module = "io.mockk:mockk", version.ref = "mockKVersion" }
 
 # Mockito Core - For unit tests

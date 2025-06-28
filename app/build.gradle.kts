@@ -89,6 +89,6 @@ dependencies {
     testImplementation(libs.mockitoCore)
     testImplementation(libs.mockitoKotlin)
     testImplementation(libs.mockitoAndroid)
-    //testImplementation(libs.kotlinxCoroutinesTest)
+    testImplementation(libs.kotlinxCoroutinesTest)
 
 }
