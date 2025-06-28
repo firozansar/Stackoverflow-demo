@@ -1,6 +1,7 @@
 [versions]
 agp = "8.11.0"
 kotlin = "2.1.21"
+ksp = "2.1.21-2.0.2"
 coreKtx = "1.16.0"
 hiltAndroid = "2.56"
 hiltAndroidCompiler = "2.56"
@@ -59,4 +60,6 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
+
 

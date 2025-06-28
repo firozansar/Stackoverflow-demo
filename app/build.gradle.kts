@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("kotlin-kapt")
+    alias(libs.plugins.ksp)
     id("com.google.dagger.hilt.android")
 }
 
@@ -14,8 +14,8 @@ android {
         applicationId = "info.firozansari.stackoverflowapp"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,12 +29,13 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
+
     buildFeatures {
         viewBinding = true
         dataBinding = true
@@ -53,7 +54,6 @@ dependencies {
 
     // Lifecycle
     implementation(libs.lifecycle)
-    kapt(libs.lifecycle.compiler)
 
     // Retrofit
     implementation(libs.retrofit)
@@ -68,14 +68,14 @@ dependencies {
 
     // Moshi
     implementation(libs.moshi)
-    kapt(libs.moshiCodeGen)
+    ksp(libs.moshiCodeGen)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     // Room
     implementation(libs.roomRuntime)
-    kapt(libs.roomCompiler)
+    ksp(libs.roomCompiler)
     implementation(libs.roomKotlinExt)
     //implementation(libs.roomPaging)
 
